@@ -15,7 +15,22 @@ namespace BabySitterKata
 
         public bool NotificationManager(string notificationType)
         {
-            bool notificationStatus = true;
+            bool notificationStatus = false;
+
+            switch (notificationType)
+            {
+                case "WelcomeMessage":
+                    notificationStatus = true;
+                    break;
+                case "StartTime":
+                    notificationStatus = true;
+                    break;
+
+                default:
+                    notificationStatus = false;
+                    break;
+            }
+
             return notificationStatus;
         }
 
