@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace BabySitterKata
 {
-    public class Program
+    public class PayCalculator
     {
-        static void Main(string[] args)
+        public string DisplayMessage(string message)
         {
-
+            return "Hello World";
         }
     }
 }
