@@ -10,6 +10,7 @@ namespace BabySitterKata
     {
         public string DisplayMessage(string message)
         {
+            Console.WriteLine(message);
             return message;
         }
     }

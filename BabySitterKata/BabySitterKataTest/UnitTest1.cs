@@ -28,6 +28,12 @@ namespace BabySitterKataTest
             Assert.AreEqual("How are you", BabySitterCalculator.DisplayMessage("How are you"));
         }
 
+        [TestMethod]
+        public void whenDisplayMessageIsPassedAStringItDisplaysToConsole()
+        {
+            Assert.AreEqual("Good Night", BabySitterCalculator.DisplayMessage("Good Night"));
+        }
+
 
     }
 }
