@@ -10,7 +10,8 @@ namespace BabySitterKata
     {
         static void Main(string[] args)
         {
-
+            PayCalculator BabySitterCalculator = new PayCalculator();
+            BabySitterCalculator.Begin();
         }
     }
 }

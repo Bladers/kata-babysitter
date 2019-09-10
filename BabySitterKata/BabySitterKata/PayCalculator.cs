@@ -8,6 +8,17 @@ namespace BabySitterKata
 {
     public class PayCalculator
     {
+        public void Begin()
+        {
+
+        }
+
+        public bool NotificationManager(string notificationType)
+        {
+            bool notificationStatus = true;
+            return notificationStatus;
+        }
+
         public string DisplayMessage(string message)
         {
             Console.WriteLine(message);

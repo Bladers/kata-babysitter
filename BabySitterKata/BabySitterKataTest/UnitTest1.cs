@@ -34,6 +34,12 @@ namespace BabySitterKataTest
             Assert.AreEqual("Good Night", BabySitterCalculator.DisplayMessage("Good Night"));
         }
 
+        [TestMethod]
+        public void whenNotificationManagerIsPassedWelcomeMessageItReturnsTrue()
+        {
+            Assert.AreEqual(true, BabySitterCalculator.NotificationManager("WelcomeMessage"));
+        }
+
 
     }
 }
