@@ -10,7 +10,7 @@ namespace BabySitterKata
     {
         public string DisplayMessage(string message)
         {
-            return "Hello World";
+            return message;
         }
     }
 }

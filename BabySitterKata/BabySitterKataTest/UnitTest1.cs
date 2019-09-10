@@ -19,5 +19,15 @@ namespace BabySitterKataTest
             actualResult = BabySitterCalculator.DisplayMessage("Hello World");
             Assert.AreEqual("Hello World", actualResult);
         }
+
+        [TestMethod]
+        public void whenDisplayMessageIsPassedAStringItReturnsThatString()
+        {
+            Assert.AreEqual("Hi", BabySitterCalculator.DisplayMessage("Hi"));
+            Assert.AreEqual("Good Morning", BabySitterCalculator.DisplayMessage("Good Morning"));
+            Assert.AreEqual("How are you", BabySitterCalculator.DisplayMessage("How are you"));
+        }
+
+
     }
 }
