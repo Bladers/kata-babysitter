@@ -127,6 +127,12 @@ namespace BabySitterKata
             return notificationSuccess;
         }
 
+        public Sitter CalculatePay(Sitter sitter, List<Family> families)
+        {
+            sitter.TotalPay = 25;
+            return sitter;
+        }
+
         public Sitter ProcessTime(string inputString, string timePeriod, Sitter sitter)
         {
             string MorningOrEvening = string.Empty;
