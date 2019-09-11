@@ -11,7 +11,7 @@ Clone or Download the repository.<br />
 1. Navigate to directory and open the solution using Visual Studio, Build Solution, Run.
 2. Alternatively you can search for "dev" or "developer command prompt" on the Taskbar Search Box.<br/>
 3. Open Developer Command Prompt for Visual Studio.<br/>
-4. To compile enter "csc -optimize -out:YourLocalDirectory\BabySitterKata\BabySitterKata\BabySitterKata.exe YourLocalDirectory\BabySitterKata\BabySitterKata\*.cs".<br/>
+4. To compile enter "csc -optimize -out:YourLocalDirectory\kata-babysitter-master\BabySitterKata\BabySitterKata\BabySitterKata.exe YourLocalDirectory\kata-babysitter-master\BabySitterKata\BabySitterKata\*.cs".<br/>
 5. Replace "YourLocalDirectory" with the directory that you downloaded the repository to.<br/>
 6. Run BabySitterKata.exe<br/>
 
