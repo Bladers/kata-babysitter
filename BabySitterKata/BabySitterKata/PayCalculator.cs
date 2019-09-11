@@ -76,8 +76,8 @@ namespace BabySitterKata
 
         public Sitter ProcessTime(string inputString, string timePeriod, Sitter sitter)
         {
-            DateTime convertedTime = new DateTime();
             string MorningOrEvening = string.Empty;
+            DateTime convertedTime = new DateTime();
             DateTime startTimeLimit = DateTime.Parse("5:00 PM");
             DateTime endTimeLimit = DateTime.Parse(DateTime.Now.AddDays(1).ToShortDateString() + " 4:00 AM");
 
@@ -90,6 +90,7 @@ namespace BabySitterKata
 
                 if (convertedTime < startTimeLimit || convertedTime > endTimeLimit)
                 {
+                    NotificationManager("IncorrectTimeInput", sitter);
                     sitter.ErrorFlag = true;
                 }
                 else
@@ -99,6 +100,7 @@ namespace BabySitterKata
                     {
                         if (convertedTime >= endTimeLimit)
                         {
+                            NotificationManager("IncorrectTimeInput", sitter);
                             sitter.ErrorFlag = true;
                         }
                         else
@@ -111,6 +113,7 @@ namespace BabySitterKata
 
                         if (convertedTime <= sitter.StartTime)
                         {
+                            NotificationManager("IncorrectEndTimeInput", sitter);
                             sitter.ErrorFlag = true;
                         }
                         else
@@ -124,6 +127,7 @@ namespace BabySitterKata
             }
             else
             {
+                NotificationManager("IncorrectTimeInput", sitter);
                 sitter.ErrorFlag = true;
             }
 
