@@ -48,6 +48,13 @@ namespace BabySitterKataTest
             Assert.AreEqual(false, BabySitterCalculator.NotificationManager("BeginTime"));
         }
 
+        [TestMethod]
+        public void whenNotificationManagerIsPassedSpecificValuesItReturnsTrue()
+        {
+            Assert.AreEqual(true, BabySitterCalculator.NotificationManager("EndTime"));
+            Assert.AreEqual(false, BabySitterCalculator.NotificationManager("StartApplication"));
+        }
+
 
     }
 }
