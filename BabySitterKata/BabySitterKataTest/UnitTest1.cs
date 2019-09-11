@@ -79,22 +79,32 @@ namespace BabySitterKataTest
         [TestMethod]
         public void whenProcessTimeIsPassedString3PMReturnSitterWithStartTimeSetTo3PM()
         {
-            sitter = BabySitterCalculator.ProcessTime("6pm", new BabySitterKata.Sitter());
+            sitter = BabySitterCalculator.ProcessTime("6pm", "starttime", new BabySitterKata.Sitter());
             Assert.AreEqual("6:00 PM", sitter.StartTime.ToShortTimeString());
         }
 
         [TestMethod]
         public void whenProcessTimeIsPassedStringEarlierThan5PmReturnSitterWithErrorLogEqualTrue()
         {
-            sitter = BabySitterCalculator.ProcessTime("4pm", new BabySitterKata.Sitter());
+            sitter = BabySitterCalculator.ProcessTime("4pm", "starttime", new BabySitterKata.Sitter());
             Assert.AreEqual(true, sitter.ErrorFlag);
         }
 
         [TestMethod]
         public void whenProcessTimeIsPassedString12AmReturnSitterWithStartTimeSetToTomorrow12AM()
         {
-            sitter = BabySitterCalculator.ProcessTime("12am", new BabySitterKata.Sitter());
+            sitter = BabySitterCalculator.ProcessTime("12am", "starttime", new BabySitterKata.Sitter());
             Assert.AreEqual(DateTime.Parse(System.DateTime.Now.AddDays(1).ToShortDateString() + " 12:00 AM"), sitter.StartTime);
+        }
+
+        [TestMethod]
+        public void whenProcessTimeTimePeriodParameterIsPassedStartTimeStringOnlySetStartTime()
+        {
+            sitter = BabySitterCalculator.ProcessTime("8pm", "starttime", new BabySitterKata.Sitter());
+            Assert.AreEqual("8:00 PM", sitter.StartTime.ToShortTimeString());
+
+            sitter = BabySitterCalculator.ProcessTime("10pm", "starttime", new BabySitterKata.Sitter());
+            Assert.AreEqual(new DateTime(), sitter.EndTime);
         }
 
     }

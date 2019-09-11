@@ -74,7 +74,7 @@ namespace BabySitterKata
             return notificationSuccess;
         }
 
-        public Sitter ProcessTime(string inputString, Sitter sitter)
+        public Sitter ProcessTime(string inputString, string timePeriod, Sitter sitter)
         {
             DateTime convertedTime = new DateTime();
             string MorningOrEvening = string.Empty;
@@ -92,7 +92,10 @@ namespace BabySitterKata
                 }
                 else
                 {
-                    sitter.StartTime = convertedTime;
+                    if (timePeriod == "starttime")
+                    {
+                        sitter.StartTime = convertedTime;
+                    }
                 }
             }
 
