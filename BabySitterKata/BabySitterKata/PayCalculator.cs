@@ -14,6 +14,15 @@ namespace BabySitterKata
 
         }
 
+        public List<Family> Initialize()
+        {
+            List<Family> families = new List<Family>();
+            families.Add(new Family());
+            families.Add(new Family());
+            families.Add(new Family());
+            return families;
+        }
+
         public bool NotificationManager(string notificationType, Sitter sitter)
         {
             bool notificationSuccess = false;

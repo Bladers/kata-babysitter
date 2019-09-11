@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.Collections.Generic;
 
 namespace BabySitterKataTest
 {
@@ -8,12 +9,13 @@ namespace BabySitterKataTest
     {
         BabySitterKata.PayCalculator BabySitterCalculator;
         BabySitterKata.Sitter sitter;
-
+        List<BabySitterKata.Family> families;
         [TestInitialize]
         public void TestInitialize()
         {
             BabySitterCalculator = new BabySitterKata.PayCalculator();
             sitter = new BabySitterKata.Sitter();
+            families = BabySitterCalculator.Initialize();
         }
 
         [TestMethod]
@@ -135,6 +137,12 @@ namespace BabySitterKataTest
         {
             sitter = BabySitterCalculator.ProcessTime(null, "starttime", new BabySitterKata.Sitter());
             Assert.AreEqual(true, sitter.ErrorFlag);
+        }
+
+        [TestMethod]
+        public void ThreeFamiliesNeedsBabySitting()
+        {
+            Assert.AreEqual(3, families.Count);
         }
 
     }
