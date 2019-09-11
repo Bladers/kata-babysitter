@@ -11,7 +11,51 @@ namespace BabySitterKata
     {
         public void Begin()
         {
+            Sitter sitter = new Sitter();
+            List<Family> families = Initialize();
+            string shouldIContinue;
 
+            NotificationManager("WelcomeMessage", sitter);
+
+            if (Console.ReadKey().Key == ConsoleKey.Enter)
+            {
+                NotificationManager("FamilySelection", sitter);
+
+                while (string.IsNullOrEmpty(sitter.Family))
+                {
+                    sitter = ProcessFamilySelection(Console.ReadLine(), sitter);
+                }
+
+                NotificationManager("StartTime", sitter);
+                sitter = ProcessTime(Console.ReadLine(), "starttime", sitter);
+
+                while (sitter.ErrorFlag)
+                {
+                    sitter.ErrorFlag = false;
+                    sitter = ProcessTime(Console.ReadLine(), "starttime", sitter);
+                }
+
+                NotificationManager("EndTime", sitter);
+                sitter = ProcessTime(Console.ReadLine(), "endtime", sitter);
+
+                while (sitter.ErrorFlag)
+                {
+                    sitter.ErrorFlag = false;
+                    sitter = ProcessTime(Console.ReadLine(), "endtime", sitter);
+                }
+
+                sitter = CalculatePay(sitter, families);
+
+                NotificationManager("ShowTotalPay", sitter);
+                NotificationManager("ContinueApplication", sitter);
+
+                shouldIContinue = Console.ReadLine();
+
+                if (shouldIContinue.ToUpper() != "YES")
+                {
+                    Begin();
+                }
+            }
         }
 
         public List<Family> Initialize()
