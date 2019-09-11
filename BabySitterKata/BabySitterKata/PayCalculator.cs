@@ -77,10 +77,14 @@ namespace BabySitterKata
         public Sitter ProcessTime(string inputString, Sitter sitter)
         {
             DateTime convertedTime = new DateTime();
+            string MorningOrEvening = string.Empty;
             DateTime startTimeLimit = DateTime.Parse("5:00 PM");
 
             if (DateTime.TryParse(inputString, out convertedTime))
             {
+                MorningOrEvening = convertedTime.ToString(@"tt", new CultureInfo("en-US"));
+
+                if (MorningOrEvening == "AM") convertedTime = convertedTime.AddDays(1);
 
                 if (convertedTime < startTimeLimit)
                 {
