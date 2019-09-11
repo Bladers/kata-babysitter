@@ -158,8 +158,17 @@ namespace BabySitterKataTest
         [TestMethod]
         public void whenCalculatePayIsCalledReturnSitterWithTotalPayEqualTo25()
         {
-            sitter = BabySitterCalculator.CalculatePay(new BabySitterKata.Sitter(), families);
-            Assert.AreEqual(25, sitter.TotalPay);
+            sitter.Family = "C";
+            sitter = BabySitterCalculator.CalculatePay(sitter, families);
+            Assert.AreEqual(15, sitter.TotalPay);
+        }
+
+        [TestMethod]
+        public void whenCalculatePayIsCalledWithSitterFamilyAReturnSitterWithTotalPayEqualTo15()
+        {
+            sitter.Family = "A";
+            sitter = BabySitterCalculator.CalculatePay(sitter, families);
+            Assert.AreEqual(20, sitter.TotalPay);
         }
 
     }

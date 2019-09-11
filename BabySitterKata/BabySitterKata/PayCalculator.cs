@@ -129,7 +129,21 @@ namespace BabySitterKata
 
         public Sitter CalculatePay(Sitter sitter, List<Family> families)
         {
-            sitter.TotalPay = 25;
+            foreach (Family family in families)
+            {
+                if (family.FamilyAbbreviation == sitter.Family)
+                {
+
+                    foreach (PayRate pay in family.WorkHours)
+                    {
+                        sitter.TotalPay = pay.Rate;
+                    }
+
+                    break;
+                }
+
+            }
+
             return sitter;
         }
 
