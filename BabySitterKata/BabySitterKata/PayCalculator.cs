@@ -79,24 +79,35 @@ namespace BabySitterKata
             DateTime convertedTime = new DateTime();
             string MorningOrEvening = string.Empty;
             DateTime startTimeLimit = DateTime.Parse("5:00 PM");
+            DateTime endTimeLimit = DateTime.Parse(DateTime.Now.AddDays(1).ToShortDateString() + " 4:00 AM");
 
             if (DateTime.TryParse(inputString, out convertedTime))
             {
+
                 MorningOrEvening = convertedTime.ToString(@"tt", new CultureInfo("en-US"));
 
                 if (MorningOrEvening == "AM") convertedTime = convertedTime.AddDays(1);
 
-                if (convertedTime < startTimeLimit)
+                if (convertedTime < startTimeLimit || convertedTime > endTimeLimit)
                 {
                     sitter.ErrorFlag = true;
                 }
                 else
                 {
+
                     if (timePeriod == "starttime")
                     {
-                        sitter.StartTime = convertedTime;
+                        if (convertedTime >= endTimeLimit)
+                        {
+                            sitter.ErrorFlag = true;
+                        }
+                        else
+                        {
+                            sitter.StartTime = convertedTime;
+                        }
                     }
                 }
+
             }
 
             return sitter;

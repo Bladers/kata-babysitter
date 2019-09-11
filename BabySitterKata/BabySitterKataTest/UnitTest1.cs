@@ -107,5 +107,12 @@ namespace BabySitterKataTest
             Assert.AreEqual(new DateTime(), sitter.EndTime);
         }
 
+        [TestMethod]
+        public void whenProcessTimeIsPassed4AmOrLaterStringReturnSitterWithErrorLogEqualTrue()
+        {
+            sitter = BabySitterCalculator.ProcessTime("5am", "starttime", new BabySitterKata.Sitter());
+            Assert.AreEqual(true, sitter.ErrorFlag);
+        }
+
     }
 }
