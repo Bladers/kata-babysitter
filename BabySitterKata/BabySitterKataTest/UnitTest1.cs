@@ -64,6 +64,16 @@ namespace BabySitterKataTest
             sitter = BabySitterCalculator.ProcessFamilySelection("a", new BabySitterKata.Sitter());
             Assert.AreEqual("A", sitter.Family);
         }
+        [TestMethod]
+        public void whenProcessFamilySelectionIsPassedStringABOrCReturnSitterWithFamilySetToABOrC()
+        {
+            sitter = BabySitterCalculator.ProcessFamilySelection("a", new BabySitterKata.Sitter());
+            Assert.AreEqual("A", sitter.Family);
+            sitter = BabySitterCalculator.ProcessFamilySelection("b", new BabySitterKata.Sitter());
+            Assert.AreEqual("B", sitter.Family);
+            sitter = BabySitterCalculator.ProcessFamilySelection("c", new BabySitterKata.Sitter());
+            Assert.AreEqual("C", sitter.Family);
+        }
 
 
     }

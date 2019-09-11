@@ -75,7 +75,24 @@ namespace BabySitterKata
 
         public Sitter ProcessFamilySelection(string input, Sitter sitter)
         {
-            sitter.Family = "A";
+            switch (input.ToLower())
+            {
+                case "a":
+                    DisplayMessage("\nYou selected Family A.");
+                    sitter.Family = "A";
+                    break;
+                case "b":
+                    DisplayMessage("\nYou selected Family B.");
+                    sitter.Family = "B";
+                    break;
+                case "c":
+                    DisplayMessage("\nYou selected Family C.");
+                    sitter.Family = "C";
+                    break;
+                default:
+                    break;
+            }
+
             return sitter;
         }
 
