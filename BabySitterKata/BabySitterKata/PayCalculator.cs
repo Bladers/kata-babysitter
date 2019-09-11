@@ -106,6 +106,10 @@ namespace BabySitterKata
                             sitter.StartTime = convertedTime;
                         }
                     }
+                    else if (timePeriod == "endtime")
+                    {
+                        sitter.EndTime = convertedTime;
+                    }
                 }
 
             }

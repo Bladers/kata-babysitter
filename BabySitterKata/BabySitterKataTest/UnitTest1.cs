@@ -114,5 +114,13 @@ namespace BabySitterKataTest
             Assert.AreEqual(true, sitter.ErrorFlag);
         }
 
+        [TestMethod]
+        public void whenProcessTimeTimePeriodParameterIsPassedEndTimeStringOnlySetEndTime()
+        {
+            sitter = BabySitterCalculator.ProcessTime("2am", "endtime", new BabySitterKata.Sitter());
+            Assert.AreEqual(DateTime.Parse(System.DateTime.Now.AddDays(1).ToShortDateString() + " 2:00 AM"), sitter.EndTime);
+            Assert.AreEqual(new DateTime(), sitter.StartTime);
+        }
+
     }
 }
