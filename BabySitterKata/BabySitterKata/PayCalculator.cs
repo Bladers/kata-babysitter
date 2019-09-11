@@ -73,6 +73,12 @@ namespace BabySitterKata
             return notificationSuccess;
         }
 
+        public Sitter ProcessFamilySelection(string input, Sitter sitter)
+        {
+            sitter.Family = "A";
+            return sitter;
+        }
+
         public string DisplayMessage(string message)
         {
             Console.WriteLine(message);

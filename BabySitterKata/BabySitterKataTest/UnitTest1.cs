@@ -6,10 +6,13 @@ namespace BabySitterKataTest
     public class BabySitterKataTest
     {
         BabySitterKata.PayCalculator BabySitterCalculator;
+        BabySitterKata.Sitter sitter;
+
         [TestInitialize]
         public void TestInitialize()
         {
             BabySitterCalculator = new BabySitterKata.PayCalculator();
+            sitter = new BabySitterKata.Sitter();
         }
 
         [TestMethod]
@@ -53,6 +56,13 @@ namespace BabySitterKataTest
         {
             Assert.AreEqual(true, BabySitterCalculator.NotificationManager("EndTime"));
             Assert.AreEqual(false, BabySitterCalculator.NotificationManager("StartApplication"));
+        }
+
+        [TestMethod]
+        public void whenProcessFamilySelectionIsPassedTheStringAReturnSitterWithFamilySetToA()
+        {
+            sitter = BabySitterCalculator.ProcessFamilySelection("a", new BabySitterKata.Sitter());
+            Assert.AreEqual("A", sitter.Family);
         }
 
 
