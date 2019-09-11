@@ -40,22 +40,22 @@ namespace BabySitterKataTest
         [TestMethod]
         public void whenNotificationManagerIsPassedWelcomeMessageItReturnsTrue()
         {
-            Assert.AreEqual(true, BabySitterCalculator.NotificationManager("WelcomeMessage"));
+            Assert.AreEqual(true, BabySitterCalculator.NotificationManager("WelcomeMessage", sitter));
         }
 
         [TestMethod]
         public void onlyWhenNotificationManagerIsPassedWelcomeMessageOrStartTimeItReturnsTrue()
         {
-            Assert.AreEqual(true, BabySitterCalculator.NotificationManager("WelcomeMessage"));
-            Assert.AreEqual(true, BabySitterCalculator.NotificationManager("StartTime"));
-            Assert.AreEqual(false, BabySitterCalculator.NotificationManager("BeginTime"));
+            Assert.AreEqual(true, BabySitterCalculator.NotificationManager("WelcomeMessage", sitter));
+            Assert.AreEqual(true, BabySitterCalculator.NotificationManager("StartTime", sitter));
+            Assert.AreEqual(false, BabySitterCalculator.NotificationManager("BeginTime", sitter));
         }
 
         [TestMethod]
         public void whenNotificationManagerIsPassedSpecificValuesItReturnsTrue()
         {
-            Assert.AreEqual(true, BabySitterCalculator.NotificationManager("EndTime"));
-            Assert.AreEqual(false, BabySitterCalculator.NotificationManager("StartApplication"));
+            Assert.AreEqual(true, BabySitterCalculator.NotificationManager("EndTime", sitter));
+            Assert.AreEqual(false, BabySitterCalculator.NotificationManager("StartApplication", sitter));
         }
 
         [TestMethod]
@@ -74,7 +74,6 @@ namespace BabySitterKataTest
             sitter = BabySitterCalculator.ProcessFamilySelection("c", new BabySitterKata.Sitter());
             Assert.AreEqual("C", sitter.Family);
         }
-
 
     }
 }

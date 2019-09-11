@@ -13,7 +13,7 @@ namespace BabySitterKata
 
         }
 
-        public bool NotificationManager(string notificationType)
+        public bool NotificationManager(string notificationType, Sitter sitter)
         {
             bool notificationSuccess = false;
 
@@ -75,22 +75,30 @@ namespace BabySitterKata
 
         public Sitter ProcessFamilySelection(string input, Sitter sitter)
         {
-            switch (input.ToLower())
+            if (!string.IsNullOrEmpty(input))
             {
-                case "a":
-                    DisplayMessage("\nYou selected Family A.");
-                    sitter.Family = "A";
-                    break;
-                case "b":
-                    DisplayMessage("\nYou selected Family B.");
-                    sitter.Family = "B";
-                    break;
-                case "c":
-                    DisplayMessage("\nYou selected Family C.");
-                    sitter.Family = "C";
-                    break;
-                default:
-                    break;
+                switch (input.ToLower())
+                {
+                    case "a":
+                        DisplayMessage("\nYou selected Family A.");
+                        sitter.Family = "A";
+                        break;
+                    case "b":
+                        DisplayMessage("\nYou selected Family B.");
+                        sitter.Family = "B";
+                        break;
+                    case "c":
+                        DisplayMessage("\nYou selected Family C.");
+                        sitter.Family = "C";
+                        break;
+                    default:
+                        NotificationManager("IncorrectFamilyInput", sitter);
+                        break;
+                }
+            }
+            else
+            {
+                NotificationManager("IncorrectFamilyInput", sitter);
             }
 
             return sitter;
