@@ -108,7 +108,16 @@ namespace BabySitterKata
                     }
                     else if (timePeriod == "endtime")
                     {
-                        sitter.EndTime = convertedTime;
+
+                        if (convertedTime <= sitter.StartTime)
+                        {
+                            sitter.ErrorFlag = true;
+                        }
+                        else
+                        {
+                            sitter.EndTime = convertedTime;
+                        }
+
                     }
                 }
 
