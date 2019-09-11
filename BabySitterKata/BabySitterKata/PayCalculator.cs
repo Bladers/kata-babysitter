@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -71,6 +72,27 @@ namespace BabySitterKata
             }
 
             return notificationSuccess;
+        }
+
+        public Sitter ProcessTime(string inputString, Sitter sitter)
+        {
+            DateTime convertedTime = new DateTime();
+            DateTime startTimeLimit = DateTime.Parse("5:00 PM");
+
+            if (DateTime.TryParse(inputString, out convertedTime))
+            {
+
+                if (convertedTime < startTimeLimit)
+                {
+                    sitter.ErrorFlag = true;
+                }
+                else
+                {
+                    sitter.StartTime = convertedTime;
+                }
+            }
+
+            return sitter;
         }
 
         public Sitter ProcessFamilySelection(string input, Sitter sitter)

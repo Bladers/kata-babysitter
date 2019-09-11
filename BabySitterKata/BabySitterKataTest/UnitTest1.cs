@@ -1,4 +1,5 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace BabySitterKataTest
 {
@@ -73,6 +74,20 @@ namespace BabySitterKataTest
             Assert.AreEqual("B", sitter.Family);
             sitter = BabySitterCalculator.ProcessFamilySelection("c", new BabySitterKata.Sitter());
             Assert.AreEqual("C", sitter.Family);
+        }
+
+        [TestMethod]
+        public void whenProcessTimeIsPassedString3PMReturnSitterWithStartTimeSetTo3PM()
+        {
+            sitter = BabySitterCalculator.ProcessTime("6pm", new BabySitterKata.Sitter());
+            Assert.AreEqual("6:00 PM", sitter.StartTime.ToShortTimeString());
+        }
+
+        [TestMethod]
+        public void whenProcessTimeIsPassedStringEarlierThan5PmReturnSitterWithErrorLogEqualTrue()
+        {
+            sitter = BabySitterCalculator.ProcessTime("4pm", new BabySitterKata.Sitter());
+            Assert.AreEqual(true, sitter.ErrorFlag);
         }
 
     }
