@@ -185,5 +185,45 @@ namespace BabySitterKataTest
             Assert.AreEqual(48, sitter.TotalPay);
         }
 
+        [TestMethod]
+        public void whenCalculatePayIsCalledWithFamilyAFrom7PmTo4AmReturnSitterWithTotalPayEqualTo48()
+        {
+            sitter.Family = "A";
+            sitter.StartTime = DateTime.Parse("7 pm");
+            sitter.EndTime = DateTime.Parse(DateTime.Now.AddDays(1).ToShortDateString() + " 4 am");
+            sitter = BabySitterCalculator.CalculatePay(sitter, families);
+            Assert.AreEqual(160, sitter.TotalPay);
+        }
+
+        [TestMethod]
+        public void whenCalculatePayIsCalledWithFamilyBFrom5PmTo12AmReturnSitterWithTotalPayEqualTo48()
+        {
+            sitter.Family = "B";
+            sitter.StartTime = DateTime.Parse("5 pm");
+            sitter.EndTime = DateTime.Parse(DateTime.Now.AddDays(1).ToShortDateString() + " 12 am");
+            sitter = BabySitterCalculator.CalculatePay(sitter, families);
+            Assert.AreEqual(76, sitter.TotalPay);
+        }
+
+        [TestMethod]
+        public void whenCalculatePayIsCalledWithFamilyCFrom10PmTo3AmReturnSitterWithTotalPayEqualTo48()
+        {
+            sitter.Family = "C";
+            sitter.StartTime = DateTime.Parse("10 pm");
+            sitter.EndTime = DateTime.Parse(DateTime.Now.AddDays(1).ToShortDateString() + " 3 am");
+            sitter = BabySitterCalculator.CalculatePay(sitter, families);
+            Assert.AreEqual(75, sitter.TotalPay);
+        }
+
+        [TestMethod]
+        public void whenCalculatePayIsCalledWithFamilyBFrom6PmTo10PmReturnSitterWithTotalPayEqualTo48()
+        {
+            sitter.Family = "B";
+            sitter.StartTime = DateTime.Parse("6 pm");
+            sitter.EndTime = DateTime.Parse("10 pm");
+            sitter = BabySitterCalculator.CalculatePay(sitter, families);
+            Assert.AreEqual(48, sitter.TotalPay);
+        }
+
     }
 }
