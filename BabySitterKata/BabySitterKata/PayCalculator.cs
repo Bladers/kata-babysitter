@@ -17,9 +17,53 @@ namespace BabySitterKata
         public List<Family> Initialize()
         {
             List<Family> families = new List<Family>();
-            families.Add(new Family());
-            families.Add(new Family());
-            families.Add(new Family());
+            string tomorrow = DateTime.Now.AddDays(1).ToShortDateString();
+
+            families.Add(new Family
+            {
+                FamilyName = "Family A",
+                FamilyAbbreviation = "A",
+                WorkHours = new List<PayRate> {
+                    new PayRate {
+                        Rate = 15, StartTime = DateTime.Parse("5:00 PM"), EndTime = DateTime.Parse("11:00 PM")
+                    },
+                    new PayRate {
+                        Rate = 20, StartTime = DateTime.Parse("11:00 PM"), EndTime = DateTime.Parse(tomorrow + " 4:00 AM")
+                    }
+                }
+            });
+
+            families.Add(new Family
+            {
+                FamilyName = "Family B",
+                FamilyAbbreviation = "B",
+                WorkHours = new List<PayRate> {
+                    new PayRate {
+                        Rate = 12, StartTime = DateTime.Parse("5:00 PM"), EndTime = DateTime.Parse("10:00 PM")
+                    },
+                    new PayRate {
+                        Rate = 8, StartTime = DateTime.Parse("10:00 PM"), EndTime = DateTime.Parse(tomorrow + " 12:00 AM")
+                    },
+                    new PayRate {
+                        Rate = 16, StartTime = DateTime.Parse(tomorrow + " 12:00 AM"), EndTime = DateTime.Parse(tomorrow + " 4:00 AM")
+                    }
+                }
+            });
+
+            families.Add(new Family
+            {
+                FamilyName = "Family C",
+                FamilyAbbreviation = "C",
+                WorkHours = new List<PayRate> {
+                    new PayRate {
+                        Rate = 21, StartTime = DateTime.Parse("5:00 PM"), EndTime = DateTime.Parse("9:00 PM")
+                    },
+                    new PayRate {
+                        Rate = 15, StartTime = DateTime.Parse("9:00 PM"), EndTime = DateTime.Parse(tomorrow + " 4:00 AM")
+                    }
+                }
+            });
+
             return families;
         }
 

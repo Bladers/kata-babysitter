@@ -144,6 +144,16 @@ namespace BabySitterKataTest
         {
             Assert.AreEqual(3, families.Count);
         }
+        [TestMethod]
+        public void ThereIsFamilyAFamilyBFamilyC()
+        {
+            Assert.AreEqual("A", families[0].FamilyAbbreviation);
+            Assert.AreEqual("Family A", families[0].FamilyName);
+            Assert.AreEqual("B", families[1].FamilyAbbreviation);
+            Assert.AreEqual("Family B", families[1].FamilyName);
+            Assert.AreEqual("C", families[2].FamilyAbbreviation);
+            Assert.AreEqual("Family C", families[2].FamilyName);
+        }
 
     }
 }
