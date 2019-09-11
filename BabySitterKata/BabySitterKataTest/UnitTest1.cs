@@ -130,5 +130,12 @@ namespace BabySitterKataTest
             Assert.AreEqual(true, sitter.ErrorFlag);
         }
 
+        [TestMethod]
+        public void whenProcessTimeIsPassedNullReturnSitterWithErrorLogEqualTrue()
+        {
+            sitter = BabySitterCalculator.ProcessTime(null, "starttime", new BabySitterKata.Sitter());
+            Assert.AreEqual(true, sitter.ErrorFlag);
+        }
+
     }
 }

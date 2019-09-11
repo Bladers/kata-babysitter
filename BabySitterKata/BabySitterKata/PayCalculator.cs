@@ -122,6 +122,10 @@ namespace BabySitterKata
                 }
 
             }
+            else
+            {
+                sitter.ErrorFlag = true;
+            }
 
             return sitter;
         }
