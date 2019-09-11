@@ -98,7 +98,7 @@ namespace BabySitterKata
                     notificationSuccess = true;
                     break;
                 case "ShowTotalPay":
-                    DisplayMessage("\nYour total pay for working " + "X" + " payable hours is $" + "X" + " dollars.");
+                    DisplayMessage("\nYour total pay for working " + sitter.TotalHours + " payable hours is $" + sitter.TotalPay + " dollars.");
                     DisplayMessage("Unfortunately any fractional hours incured are non payable.");
                     notificationSuccess = true;
                     break;
@@ -110,7 +110,7 @@ namespace BabySitterKata
                     break;
                 case "IncorrectEndTimeInput":
                     DisplayMessage("\n- Invalid End Time Entry -");
-                    DisplayMessage("Please enter a time later than your start time of " + "XX" + ":");
+                    DisplayMessage("Please enter a time later than your start time of " + sitter.StartTime.ToShortTimeString() + ":");
                     notificationSuccess = true;
                     break;
                 case "IncorrectFamilyInput":
