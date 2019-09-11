@@ -129,14 +129,33 @@ namespace BabySitterKata
 
         public Sitter CalculatePay(Sitter sitter, List<Family> families)
         {
+            DateTime placeholderTime = sitter.StartTime;
+            bool payWasUpdated = false;
+
             foreach (Family family in families)
             {
                 if (family.FamilyAbbreviation == sitter.Family)
                 {
+                    placeholderTime = placeholderTime.AddHours(1);
 
                     foreach (PayRate pay in family.WorkHours)
                     {
-                        sitter.TotalPay = pay.Rate;
+                        payWasUpdated = true;
+
+                        while (payWasUpdated)
+                        {
+                            payWasUpdated = false;
+                            if (placeholderTime <= sitter.EndTime)
+                            {
+                                if ((placeholderTime >= pay.StartTime) && (placeholderTime <= pay.EndTime))
+                                {
+                                    sitter.TotalPay += pay.Rate;
+                                    sitter.TotalHours++;
+                                    payWasUpdated = true;
+                                    placeholderTime = placeholderTime.AddHours(1);
+                                }
+                            }
+                        }
                     }
 
                     break;

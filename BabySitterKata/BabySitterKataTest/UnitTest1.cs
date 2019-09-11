@@ -156,9 +156,11 @@ namespace BabySitterKataTest
         }
 
         [TestMethod]
-        public void whenCalculatePayIsCalledReturnSitterWithTotalPayEqualTo25()
+        public void whenCalculatePayIsCalledReturnSitterWithTotalPayEqualTo15()
         {
             sitter.Family = "C";
+            sitter.StartTime = DateTime.Parse("10 pm");
+            sitter.EndTime = DateTime.Parse("11 pm");
             sitter = BabySitterCalculator.CalculatePay(sitter, families);
             Assert.AreEqual(15, sitter.TotalPay);
         }
@@ -167,8 +169,20 @@ namespace BabySitterKataTest
         public void whenCalculatePayIsCalledWithSitterFamilyAReturnSitterWithTotalPayEqualTo15()
         {
             sitter.Family = "A";
+            sitter.StartTime = DateTime.Parse("11 pm");
+            sitter.EndTime = DateTime.Parse(DateTime.Now.AddDays(1).ToShortDateString() + " 12 am");
             sitter = BabySitterCalculator.CalculatePay(sitter, families);
             Assert.AreEqual(20, sitter.TotalPay);
+        }
+
+        [TestMethod]
+        public void whenCalculatePayIsCalledWithFamilyBFrom10PmTo2AmReturnSitterWithTotalPayEqualTo48()
+        {
+            sitter.Family = "B";
+            sitter.StartTime = DateTime.Parse("10 pm");
+            sitter.EndTime = DateTime.Parse(DateTime.Now.AddDays(1).ToShortDateString() + " 2 am");
+            sitter = BabySitterCalculator.CalculatePay(sitter, families);
+            Assert.AreEqual(48, sitter.TotalPay);
         }
 
     }
